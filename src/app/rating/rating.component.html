@@ -1,0 +1,17 @@
+<div class="rating">
+    <div>Rating:</div>
+    <div class="star-rating">
+        <div
+            *ngFor="let star of stars"
+            class="star"
+            (mouseover)="updateRatingText(star.text)"
+            (mouseout)="updateRatingText('')"
+            (click)="setRating(star.value)"
+            [ngClass]="star.value <= selectedRating ? 'star-gold' : 'star-gray'"
+            [class.star-disabled]="isDisabled"
+        >
+            <mat-icon>star</mat-icon>
+        </div>
+    </div>
+</div>
+<div class="star-text">{{ ratingText }}</div>
